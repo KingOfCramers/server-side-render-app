@@ -1,16 +1,14 @@
-// This will run on our server-side, to convert it all into node-readable code (it uses babel)
+// This is intended to compile the client React app and place it into the public folder...
 const path = require("path");
 module.exports = {
-    // Inform webpack we're building this bundle for Node.js
-    target: 'node',
-    // Root file of server application
-    entry: './src/server.js',
-    // Output bundle to 
+    // Use the client.js file...
+    entry: './src/client/client.js',
+    // Output bundle to public folder...
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'build')
+        path: path.resolve(__dirname, 'public')
     },
-    // Tell webpack to run Babel on every file.
+    // Tell webpack to run Babel on all our .js files.
     module: {
         rules: [
             {

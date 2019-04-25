@@ -7047,6 +7047,8 @@ var _Home2 = _interopRequireDefault(_Home);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
+// We ignore these top three scripts w/ webpack-node-externals module, saving us development time...
+
 var port = 8081;
 
 app.use(_express2.default.static('public'));

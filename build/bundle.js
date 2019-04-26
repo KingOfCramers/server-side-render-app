@@ -99,7 +99,7 @@ var port = 8081;
 
 app.use(_express2.default.static("public"));
 
-app.get("/", function (req, res) {
+app.get("*", function (req, res) {
     res.send((0, _renderer2.default)(req)); // Pass req to the renderer to let it figure out what the base path is (it will only ever be '/')...
 });
 
@@ -184,7 +184,10 @@ exports.default = function () {
     return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default })
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/hi', component: function component() {
+                return 'Hi';
+            } })
     );
 };
 

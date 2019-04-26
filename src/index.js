@@ -7,7 +7,7 @@ const port = 8081;
 
 app.use(express.static("public"));
 
-app.get("/", (req,res) => {
+app.get("*", (req,res) => {
     res.send(renderer(req)); // Pass req to the renderer to let it figure out what the base path is (it will only ever be '/')...
 });
 

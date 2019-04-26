@@ -6,16 +6,16 @@ const baseConfig = require("./webpack.base.js");
 
 const config = {
     // Inform webpack we're building this bundle for Node.js
-    target: 'node',
+    target: "node",
     // Root file of server application
-    entry: './src/server.js',
+    entry: "./src/index.js",
     // Output bundle to 
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'build')
+        filename: "bundle.js",
+        path: path.resolve(__dirname, "build")
     },
     // Ignore anything in the node_modules in our server side bundle.js file...
-    externals: [webpackNodeExternals]
+    externals: [webpackNodeExternals()]
 };
 
 module.exports = merge(baseConfig, config);

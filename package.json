@@ -4,10 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev" : "npm-run-all --parallel dev:*",
-      "dev:build-server": "webpack --config webpack.server.js --watch",
-      "dev:build-client" : "webpack --config webpack.client.js --watch",
-      "dev:serve": "nodemon --watch build --watch public --exec 'node build/bundle.js'"
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:build-server": "webpack --config webpack.server.js --watch",
+    "dev:build-client": "webpack --config webpack.client.js --watch",
+    "dev:serve": "nodemon --watch build --exec \"node build/bundle.js\""
   },
   "dependencies": {
     "axios": "0.16.2",

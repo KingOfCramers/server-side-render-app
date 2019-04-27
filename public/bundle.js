@@ -8718,9 +8718,13 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRouterDom = __webpack_require__(158);
 
-var _redux = __webpack_require__(111);
-
 var _reactRedux = __webpack_require__(169);
+
+var _Routes = __webpack_require__(468);
+
+var _Routes2 = _interopRequireDefault(_Routes);
+
+var _redux = __webpack_require__(111);
 
 var _reduxThunk = __webpack_require__(446);
 
@@ -8730,14 +8734,13 @@ var _reducers = __webpack_require__(447);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
-var _Routes = __webpack_require__(468);
-
-var _Routes2 = _interopRequireDefault(_Routes);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Startup point for our client side app... NO SERVER-SIDE CODE!!!
-var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default));
+// This rehydrates our existing, server-side rendered html with our Javascript.
+var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose;
+
+var store = (0, _redux.createStore)(_reducers2.default, composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default)));
 
 _reactDom2.default.hydrate(_react2.default.createElement(
     _reactRedux.Provider,
@@ -37087,7 +37090,7 @@ exports.default = function () {
 
     switch (action.type) {
         case _actions.FETCH_USERS:
-            return action.payload;
+            return action.payload.data; // Here, action.payload gets you the res from your request. You then must access the data property...
         default:
             return state;
     }

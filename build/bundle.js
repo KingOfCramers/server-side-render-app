@@ -233,7 +233,9 @@ exports.default = function (req, store) {
     var html = "<html>\n        <head></head>\n        <body>\n            <div id=\"root\">" + content + "</div>\n            <script src='bundle.js'></script>\n        </body>\n    </html>";
 
     return html;
-};
+}; // The renderer is a pure function that returns our html.
+// It accepts our req object, and the redux store that's created in createStore.js
+// It runs renderToString, turning everything into html, and serves that up as our skeleton...
 
 /***/ }),
 /* 9 */
@@ -485,7 +487,7 @@ exports.default = function () {
 
     switch (action.type) {
         case _actions.FETCH_USERS:
-            return action.payload;
+            return action.payload.data; // Here, action.payload gets you the res from your request. You then must access the data property...
         default:
             return state;
     }

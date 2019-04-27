@@ -1,3 +1,6 @@
+// The renderer is a pure function that returns our html.
+// It accepts our req object, and the redux store that's created in createStore.js
+// It runs renderToString, turning everything into html, and serves that up as our skeleton... 
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
